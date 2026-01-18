@@ -1,0 +1,154 @@
+{
+	"info": {
+		"name": "API Alunos - Go Gin",
+		"description": "Coleção completa para testar a API REST de gerenciamento de alunos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Saudação",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Aparicio",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["Aparicio"]
+				},
+				"description": "Endpoint de saudação personalizada"
+			}
+		},
+		{
+			"name": "Listar Todos os Alunos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/alunos",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["alunos"]
+				},
+				"description": "Retorna a lista de todos os alunos cadastrados"
+			}
+		},
+		{
+			"name": "Criar Novo Aluno",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nome\": \"Aparicio Junior\",\n  \"rg\": \"123456789\",\n  \"cpf\": \"12345678901\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/alunos",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["alunos"]
+				},
+				"description": "Cria um novo aluno no banco de dados"
+			}
+		},
+		{
+			"name": "Buscar Aluno por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/alunos/1",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["alunos", "1"]
+				},
+				"description": "Busca um aluno específico pelo ID"
+			}
+		},
+		{
+			"name": "Buscar Aluno por CPF",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/alunos/cpf/12345678901",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["alunos", "cpf", "12345678901"]
+				},
+				"description": "Busca um aluno pelo CPF"
+			}
+		},
+		{
+			"name": "Editar Aluno",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nome\": \"Aparicio Junior Atualizado\",\n  \"rg\": \"987654321\",\n  \"cpf\": \"10987654321\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/alunos/1",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["alunos", "1"]
+				},
+				"description": "Atualiza os dados de um aluno existente"
+			}
+		},
+		{
+			"name": "Deletar Aluno",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/alunos/1",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["alunos", "1"]
+				},
+				"description": "Remove um aluno do banco de dados"
+			}
+		},
+		{
+			"name": "Página Index (HTML)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/index",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["index"]
+				},
+				"description": "Página HTML com listagem de alunos"
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
