@@ -29,15 +29,15 @@ jobs:
         go-version: ${{ matrix.go_version }}
       
     - name: Build-DB
-      run: docker-compose build
+      run: docker compose build
       
     - name: Create-DB
-      run: docker-compose up -d
+      run: docker compose up -d
       
     - name: Wait for PostgreSQL
       run: |
         echo "Waiting for PostgreSQL to be healthy..."
-        timeout 60 bash -c 'until docker-compose ps | grep postgres | grep -q "(healthy)"; do echo "Waiting..."; sleep 2; done'
+        timeout 60 bash -c 'until docker compose ps | grep postgres | grep -q "(healthy)"; do echo "Waiting..."; sleep 2; done'
         echo "PostgreSQL is ready!"
 
     - name: Test
